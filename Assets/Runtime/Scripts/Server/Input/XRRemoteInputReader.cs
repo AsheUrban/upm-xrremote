@@ -8,14 +8,15 @@ namespace XRRemote.Input
 {
     public class XRRemoteInputReader : MonoBehaviour
     {
-        private Vector2 lastTouchPosition = Vector2.zero;
-        public Vector2 lastTouchPositionNormalized 
+        public Vector2 LastTouchPositionNormalized 
         {
             get
             {
                 return new Vector2(lastTouchPosition.x / canvasSize.x, lastTouchPosition.y / canvasSize.y);
             }
         }
+
+        private Vector2 lastTouchPosition = Vector2.zero;
         private Vector2 canvasSize = Vector2.one;
         private bool hasBeenRead = true;
 
@@ -44,7 +45,7 @@ namespace XRRemote.Input
                 touchPositionNormalized = Vector2.zero;
                 return false;
             }
-            touchPositionNormalized = lastTouchPositionNormalized;
+            touchPositionNormalized = LastTouchPositionNormalized;
             hasBeenRead = true;
 
             return true;

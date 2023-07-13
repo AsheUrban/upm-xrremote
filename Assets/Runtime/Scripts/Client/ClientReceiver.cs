@@ -34,7 +34,9 @@ namespace XRRemote
     {
         public static ClientReceiver Instance { get; private set; } = null;
         public ServerRemotePacket remotePacket { get; private set; } = null;
+
         public event EventHandler OnPlanesInfoReceived;
+        public event EventHandler OnInputDataReceived;
 
         private void Awake()
         {
@@ -70,7 +72,7 @@ namespace XRRemote
             PlanesInfoCheck(remotePacket);
 
             if (remotePacket.touchPositionNormalized != null) {
-                Debug.LogWarning($"{gameObject.name}: Input received - {remotePacket.touchPositionNormalized}");
+                OnInputDataReceived?.Invoke(this, EventArgs.Empty);
             }
         }
 

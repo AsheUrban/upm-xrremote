@@ -693,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 771691145}
+    - target: {fileID: 4918944641361055956, guid: 6c7ea7b596f85854791bf3a5ef395762, type: 3}
+      propertyPath: m_Name
+      value: XRRemote Input System
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7ea7b596f85854791bf3a5ef395762, type: 3}
 --- !u!1001 &3745883730783663454
