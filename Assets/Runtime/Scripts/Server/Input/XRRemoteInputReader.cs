@@ -21,14 +21,9 @@ namespace XRRemote.Input
 
         private void Awake()
         {
-            Canvas canvas = FindObjectOfType<Canvas>();
-
-            if (canvas != null) {
-                canvasSize.x = canvas.GetComponent<RectTransform>().rect.height;
-                canvasSize.y = canvas.GetComponent<RectTransform>().rect.width;
-
-                Debug.LogError($"canvas size: {canvasSize.x} x {canvasSize.y}");
-            }
+            canvasSize.x = Screen.width;
+            canvasSize.y = Screen.height;
+            // Debug.LogError($"canvas size: {canvasSize.x} x {canvasSize.y}");
         }
 
         public bool TryGetLastInput(out Vector2 touchPosition)
@@ -63,8 +58,6 @@ namespace XRRemote.Input
             var touchPosition = context.ReadValue<Vector2>();
             lastTouchPosition = touchPosition;
             hasBeenRead = false;
-            Vector2 tempPosN = lastTouchPositionNormalized;
-            Debug.Log($"Touch detected! - {lastTouchPosition} - {tempPosN}");
         }
     }
 }
