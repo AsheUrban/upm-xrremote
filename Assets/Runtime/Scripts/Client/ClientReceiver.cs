@@ -68,6 +68,10 @@ namespace XRRemote
             ServerRemotePacket remotePacket = ObjectSerializationExtension.Deserialize<ServerRemotePacket>(bytes);
             this.remotePacket = remotePacket;
             PlanesInfoCheck(remotePacket);
+
+            if (remotePacket.touchPositionNormalized != null) {
+                Debug.LogWarning($"{gameObject.name}: Input received - {remotePacket.touchPositionNormalized}");
+            }
         }
 
         private void PlanesInfoCheck(ServerRemotePacket remotePacket)
